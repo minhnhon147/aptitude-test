@@ -4,7 +4,7 @@
     <BackgroundItem></BackgroundItem>
     <FeaturesItem></FeaturesItem>
     <ServiceItem></ServiceItem>
-    <router-view/>
+    <!-- <router-view/> -->
     <CounterArea></CounterArea>
     <FooterItem></FooterItem>
   </div>

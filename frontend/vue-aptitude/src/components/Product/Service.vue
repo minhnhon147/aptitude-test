@@ -13,7 +13,7 @@
   <ProductItem></ProductItem>
   <div class="btn-view-more">
     <div class="btn">
-    <router-link to="/products" @click="addProduct">View More</router-link>
+    <router-link to="/products" @click="getProduct">View More</router-link>
     </div>
   </div>
 </div>

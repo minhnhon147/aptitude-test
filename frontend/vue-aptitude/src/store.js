@@ -39,7 +39,7 @@ export const store = createStore({
         }
       ),
 
-    getProduct: () => {
+    getProduct: (state) => {
       console.log("axios run");
       axios
         .get(`http://localhost:8080/be_aptitude/productRequest.php`, {
@@ -48,7 +48,11 @@ export const store = createStore({
           },
         })
         .then((response) => {
-          console.log(response.data);
+          const data = response.data;
+          data.forEach((item) => {
+            delete item.id;
+            state.products.push(item);
+          });
         })
         .catch((e) => {
           this.errors.push(e);

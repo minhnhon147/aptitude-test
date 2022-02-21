@@ -19,6 +19,7 @@ class productAPI
 
   function getAllProductResource()
   {
+    header("Access-Control-Allow-Origin:*");
     $this->dbReference = new systemConfig();
     $this->dbConnect = $this->dbReference->connectDB();
     if ($this->dbConnect == NULL) {
@@ -33,8 +34,8 @@ class productAPI
         while ($row = $this->result->fetch_assoc()) {
           $resultSet[] = $row;
         }
-        $this->dbReference->sendResponse(200, "{'products':" . json_encode($resultSet) . "}");
-        // $this->dbReference->sendResponse(200, json_encode($resultSet));
+        // $this->dbReference->sendResponse(200, "{'products':" . json_encode($resultSet) . "}");
+        $this->dbReference->sendResponse(200, json_encode($resultSet));
       } else {
         //echo “0 results”;
         $this->dbReference->sendResponse(200, "{'items':null}");
